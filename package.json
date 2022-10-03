@@ -18,10 +18,7 @@
     "dht22",
     "homebridge"
   ],
-  "scripts": {
-    "lint": "eslint ."
-  },
-  "author": "Leo Marcel <leo.marcel.pro@gmail.com (leomarcel.fr)",
+  "author": "Leo Marcel <leo.marcel.pro@gmail.com> (leomarcel.fr)",
   "license": "ISC",
   "dependencies": {
     "node-fetch": "^2.6.7"
