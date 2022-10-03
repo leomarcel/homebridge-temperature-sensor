@@ -1,7 +1,7 @@
 {
   "bridge": {
-    "name": "Homebridge",
-    "username": "CC:22:3D:E3:CE:50",
+    "name": "Unraid",
+    "username": "3A:3D:9B:84:E3:60",
     "port": 51826,
     "pin": "031-45-154"
   },
@@ -10,8 +10,8 @@
 
   "accessories": [
     {
-      "accessory": "Temperature Sensor",
-      "name": "Pi Temperature Sensor",
+      "accessory": "DHT22",
+      "name": "Temperature Sensor",
       "pin": 4
     }
   ],

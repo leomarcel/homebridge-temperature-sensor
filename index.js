@@ -1,4 +1,4 @@
-const sensor = require('node-dht-sensor');
+const fetch = require('node-fetch');
 
 let Service, Characteristic;
 
@@ -30,14 +30,9 @@ class Sensor {
   }
 
   getReading(callback) {
-    sensor.read(22, this.pin, (err, temperature) => {
+    fetch(URL).then(res => {
       callback();
-      if (err) {
-        console.error(err); // eslint-disable-line no-console
-        return;
-      }
-
-      this.currentTemperature = temperature;
+      this.currentTemperature = res.Temperature;
       this.temperatureService.setCharacteristic(Characteristic.CurrentTemperature, this.currentTemperature);
     });
   }
@@ -46,8 +41,8 @@ class Sensor {
     const informationService = new Service.AccessoryInformation();
 
     informationService
-      .setCharacteristic(Characteristic.Manufacturer, 'Encore Dev Labs')
-      .setCharacteristic(Characteristic.Model, 'Pi Temperature Sensor')
+      .setCharacteristic(Characteristic.Manufacturer, 'DHT22')
+      .setCharacteristic(Characteristic.Model, 'Temperature Sensor')
       .setCharacteristic(Characteristic.SerialNumber, 'Raspberry Pi');
 
     this.temperatureService = new Service.TemperatureSensor(this.name);
